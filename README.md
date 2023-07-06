@@ -11,5 +11,6 @@ SnakeOilXY-LFR (Large format FR4) is a complete redesign inspired by the [Voron 
 - AUX fan support.
 - Active-ish chamber heater.
 - Better support and reliability for MMU/filament-loader units. 
+- Thermal expansion compensation bed mount
 
 
