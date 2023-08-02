@@ -1,0 +1,64 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 64C4E0D3
+P 2650 3150
+F 0 "J?" H 2758 3331 50  0000 C CNN
+F 1 "Pogo-magnet" H 2758 3240 50  0000 C CNN
+F 2 "custom-footprints:pogo-magnet-2p" H 2650 3150 50  0001 C CNN
+F 3 "~" H 2650 3150 50  0001 C CNN
+	1    2650 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 64C5087D
+P 2650 3550
+F 0 "J?" H 2758 3731 50  0000 C CNN
+F 1 "Pogo-magnet" H 2758 3640 50  0000 C CNN
+F 2 "custom-footprints:pogo-magnet-2p" H 2650 3550 50  0001 C CNN
+F 3 "~" H 2650 3550 50  0001 C CNN
+	1    2650 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x03_Female J?
+U 1 1 64C5032E
+P 3850 3250
+F 0 "J?" H 3878 3276 50  0000 L CNN
+F 1 "witch_conn" H 3878 3185 50  0000 L CNN
+F 2 "custom-footprints:Switch-limit-D2HW" H 3850 3250 50  0001 C CNN
+F 3 "~" H 3850 3250 50  0001 C CNN
+	1    3850 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 3150 3650 3150
+Wire Wire Line
+	2850 3650 2850 3550
+Wire Wire Line
+	3650 3250 3200 3250
+Wire Wire Line
+	3200 3250 3200 3550
+Wire Wire Line
+	3200 3550 2850 3550
+Connection ~ 2850 3550
+Wire Wire Line
+	2850 3250 2850 3150
+Connection ~ 2850 3150
+NoConn ~ 3650 3350
+$EndSCHEMATC

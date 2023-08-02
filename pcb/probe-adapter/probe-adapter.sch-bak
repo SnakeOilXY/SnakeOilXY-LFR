@@ -1,0 +1,193 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Conn_01x02_Female J5
+U 1 1 64C39A14
+P 4650 1250
+F 0 "J5" H 4678 1226 50  0000 L CNN
+F 1 "POGO_MAGNET" H 4678 1135 50  0000 L CNN
+F 2 "custom-footprints:pogo-magnet-2p" H 4650 1250 50  0001 C CNN
+F 3 "~" H 4650 1250 50  0001 C CNN
+	1    4650 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Female J2
+U 1 1 64C39EBB
+P 2400 2700
+F 0 "J2" H 2292 2475 50  0000 C CNN
+F 1 "GND" H 2292 2566 50  0000 C CNN
+F 2 "custom-footprints:solder-pad" H 2400 2700 50  0001 C CNN
+F 3 "~" H 2400 2700 50  0001 C CNN
+	1    2400 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:WS2812B D1
+U 1 1 64C3A535
+P 5800 2650
+F 0 "D1" H 6144 2696 50  0000 L CNN
+F 1 "WS2812B" H 6144 2605 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 5850 2350 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5900 2275 50  0001 L TNN
+	1    5800 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 64C3A88F
+P 2900 3450
+F 0 "C1" H 3015 3496 50  0000 L CNN
+F 1 "10u" H 3015 3405 50  0000 L CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2938 3300 50  0001 C CNN
+F 3 "~" H 2900 3450 50  0001 C CNN
+	1    2900 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Female J3
+U 1 1 64C3B5E6
+P 2400 3000
+F 0 "J3" H 2292 2775 50  0000 C CNN
+F 1 "PROBE" H 2292 2866 50  0000 C CNN
+F 2 "custom-footprints:solder-pad" H 2400 3000 50  0001 C CNN
+F 3 "~" H 2400 3000 50  0001 C CNN
+	1    2400 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Female J4
+U 1 1 64C3B8C4
+P 2400 3300
+F 0 "J4" H 2292 3075 50  0000 C CNN
+F 1 "5V" H 2292 3166 50  0000 C CNN
+F 2 "custom-footprints:solder-pad" H 2400 3300 50  0001 C CNN
+F 3 "~" H 2400 3300 50  0001 C CNN
+	1    2400 3300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Female J1
+U 1 1 64C3BC6C
+P 2400 2400
+F 0 "J1" H 2292 2175 50  0000 C CNN
+F 1 "NEOPIXEL" H 2292 2266 50  0000 C CNN
+F 2 "custom-footprints:solder-pad" H 2400 2400 50  0001 C CNN
+F 3 "~" H 2400 2400 50  0001 C CNN
+	1    2400 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Female J6
+U 1 1 64C3CAA8
+P 4650 1600
+F 0 "J6" H 4678 1576 50  0000 L CNN
+F 1 "POGO_MAGNET" H 4678 1485 50  0000 L CNN
+F 2 "custom-footprints:pogo-magnet-2p" H 4650 1600 50  0001 C CNN
+F 3 "~" H 4650 1600 50  0001 C CNN
+	1    4650 1600
+	1    0    0    -1  
+$EndComp
+Text GLabel 3250 2700 2    50   Input ~ 0
+GND
+Text GLabel 4000 3000 2    50   Input ~ 0
+PROBE
+Text GLabel 3250 3300 2    50   Input ~ 0
+5V
+Text GLabel 2750 2400 2    50   Input ~ 0
+NEOPIXEL
+Wire Wire Line
+	2600 2700 2800 2700
+Wire Wire Line
+	2600 3000 3650 3000
+Wire Wire Line
+	2600 2400 2750 2400
+Text GLabel 4100 1250 0    50   Input ~ 0
+GND
+Text GLabel 4100 1600 0    50   Input ~ 0
+PROBE
+Wire Wire Line
+	4450 1600 4450 1700
+Connection ~ 4450 1600
+Wire Wire Line
+	4450 1250 4450 1350
+Connection ~ 4450 1250
+Text GLabel 5800 2150 1    50   Input ~ 0
+5V
+Text GLabel 5800 3150 3    50   Input ~ 0
+GND
+Wire Wire Line
+	5800 3150 5800 2950
+Text GLabel 5300 2650 0    50   Input ~ 0
+NEOPIXEL
+Wire Wire Line
+	5300 2650 5500 2650
+$Comp
+L Device:C C2
+U 1 1 64C59538
+P 3650 3150
+F 0 "C2" H 3765 3196 50  0000 L CNN
+F 1 "(OPTIONAL)22-100n" H 3765 3105 50  0000 L CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3688 3000 50  0001 C CNN
+F 3 "~" H 3650 3150 50  0001 C CNN
+	1    3650 3150
+	1    0    0    -1  
+$EndComp
+Connection ~ 3650 3000
+Wire Wire Line
+	3650 3000 4000 3000
+Text GLabel 2900 3600 3    50   Input ~ 0
+GND
+Text GLabel 3650 3300 3    50   Input ~ 0
+GND
+NoConn ~ 6100 2650
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 64C5B42B
+P 2800 2700
+F 0 "#FLG0101" H 2800 2775 50  0001 C CNN
+F 1 "PWR_FLAG" H 2800 2873 50  0000 C CNN
+F 2 "" H 2800 2700 50  0001 C CNN
+F 3 "~" H 2800 2700 50  0001 C CNN
+	1    2800 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 64C5BBF5
+P 2900 3300
+F 0 "#FLG0102" H 2900 3375 50  0001 C CNN
+F 1 "PWR_FLAG" H 2900 3473 50  0000 C CNN
+F 2 "" H 2900 3300 50  0001 C CNN
+F 3 "~" H 2900 3300 50  0001 C CNN
+	1    2900 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 2150 5800 2350
+Wire Wire Line
+	4100 1600 4450 1600
+Wire Wire Line
+	4100 1250 4450 1250
+Connection ~ 2800 2700
+Wire Wire Line
+	2800 2700 3250 2700
+Connection ~ 2900 3300
+Wire Wire Line
+	2900 3300 3250 3300
+Wire Wire Line
+	2600 3300 2900 3300
+$EndSCHEMATC
