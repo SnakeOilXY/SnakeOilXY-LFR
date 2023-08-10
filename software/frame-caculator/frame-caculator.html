@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+    input {
+        width: 97%;
+        min-width: 97%;
+    }
+    .userInput{
+        margin: 10px;
+    }
+    .calcResult{
+        margin: 10px;
+    }
+    p{
+        margin-top: 5px;
+        margin-top: 5px;
+    }
+    .bg-blue{
+        background-color: aquamarine;
+    }
+    .bg-green{
+        background-color: greenyellow;
+    }
+    .bg-yellow{
+        background-color: yellow;
+    }
+    .bg-brown{
+        background-color:sandybrown;
+    }
+</style>
+<head>
+    <title>SLFR frame caculator</title>
+</head>
+
+<body>
+
+    <div class="userInput">
+        <h2>User input</h2>
+
+        <table style="width:100%">
+            <tr>
+                <th>Build size X</th>
+                <th>Build size Y</th>
+                <th>Build size Z</th>
+            </tr>
+            <tr>
+                <td><input type="number" id="build_size_x" oninput="calc();" autocomplete="off"></td>
+                <td><input type="number" id="build_size_y" oninput="calc();" autocomplete="off"></td>
+                <td><input type="number" id="build_size_z" oninput="calc();" autocomplete="off"></td>
+            </tr>
+        </table>
+
+        <p id="inputErrMsg"></p>
+    </div>
+
+    <div class="calcResult">
+        <h2>Machine size</h2>
+
+        <table style="width:100%">
+            <tr>
+                <th>Width</th>
+                <th>Deep</th>
+                <th>Height</th>
+            </tr>
+            <tr>
+                <td class="bg-brown"><p id="machine_size_x"></p></td>
+                <td class="bg-brown"><p id="machine_size_y"></p></td>
+                <td class="bg-brown"><p id="machine_size_z"></p><p>+ foot</p></td>
+            </tr>
+        </table>
+
+        <h2>Frame parts</h2>
+
+        <table style="width:100%">
+            <tr>
+                <th>Part name</th></p>
+                <th>length</th>
+                <th>Quantity</th>
+            </tr>
+            <tr class="bg-green">
+                <td>X rail (MGN9H)</td>
+                <td><p id="x_rail_length"></p></td>
+                <td><p>1</p></td>
+            </tr>
+            <tr class="bg-green">
+                <td>Y rail (MGN9H)</td>
+                <td><p id="y_rail_length"></p></td>
+                <td><p>2</p></td>
+            </tr>
+            <tr class="bg-green">
+                <td>Z rail (MGN12H)</td>
+                <td><p id="z_rail_length"></p></td>
+                <td><p>4</p></td>
+            </tr>
+
+            <tr class="bg-blue">
+                <td>Vertical extrusion (3030 T-Slot)</td>
+                <td><p id="v_frame_length"></p></td>
+                <td><p>4</p></td>
+            </tr>
+            <tr class="bg-blue">
+                <td>Front/back horizontal extrusion (3030 T-Slot)</td>
+                <td><p id="hfb_frame_length"></p></td>
+                <td><p>4</p></td>
+            </tr>
+            <tr class="bg-blue">
+                <td>Left/right horizontal extrusion (3030 T-Slot)</td>
+                <td><p id="hlr_frame_length"></p></td>
+                <td><p>4</p></td>
+            </tr>
+            <tr class="bg-blue">
+                <td>Bed frame extrusion (3030 T-Slot)</td>
+                <td><p id="b_frame_length"></p></td>
+                <td><p>2</p></td>
+            </tr>
+
+            <tr class="bg-yellow">
+                <td>Gantry front extrusion (2020 T-Slot)</td>
+                <td><p id="f_gantry_length"></p></td>
+                <td><p>1</p></td>
+            </tr>
+            <tr class="bg-yellow">
+                <td>Gantry back extrusion (2020 T-Slot)</td>
+                <td><p id="b_gantry_length"></p></td>
+                <td><p>1</p></td>
+            </tr>
+            <tr class="bg-yellow">
+                <td>Gantry left/right extrusion (2020 T-Slot)</td>
+                <td><p id="lr_gantry_length"></p></td>
+                <td><p>2</p></td>
+            </tr>
+            <tr class="bg-yellow">
+                <td>Gantry X extrusion (2020 T-Slot)</td>
+                <td><p id="x_gantry_length"></p></td>
+                <td><p>1</p></td>
+            </tr>
+
+    </div>
+
+
+    <script>
+        function calc() {
+            var build_size_x = document.getElementById("build_size_x").value;
+            var build_size_y = document.getElementById("build_size_y").value;
+            var build_size_z = document.getElementById("build_size_z").value;
+
+            var machine_size_x = 0;
+            var machine_size_y = 0;
+            var machine_size_z = 0;
+
+            var x_rail_length = 0;
+            var y_rail_length = 0;
+            var z_rail_length = 0;
+
+            var v_frame_length = 0;
+            var hfb_frame_length = 0;
+            var hlr_frame_length = 0;
+            var b_frame_length = 0;
+            var f_gantry_length = 0;
+            var b_gantry_length = 0;
+            var lr_gantry_length = 0;
+            var x_gantry_length = 0;
+
+            if ( build_size_x != "" &&  build_size_y != "" &&  build_size_z != "" )
+            // if (!isNaN(build_size_x) && !isNaN(build_size_y) && !isNaN(build_size_z))
+            {
+                build_size_x = parseFloat(build_size_x);
+                build_size_y = parseFloat(build_size_y);
+                build_size_z = parseFloat(build_size_z);
+
+                x_rail_length = build_size_x + 50;
+                y_rail_length = build_size_y + 50;
+                z_rail_length = build_size_z + 50;
+
+                x_gantry_length = x_rail_length + 31*2 +3;
+                lr_gantry_length = y_rail_length + 5 + 35*2
+                var gantry_inner_distance = x_gantry_length + 30*2;
+                f_gantry_length = gantry_inner_distance - 100*2;
+                b_gantry_length = gantry_inner_distance - 84*2;
+
+                v_frame_length = z_rail_length + 190;
+                hfb_frame_length = gantry_inner_distance + 5*2;
+                hlr_frame_length = lr_gantry_length + 15*2 + 30*2;
+                b_frame_length = hlr_frame_length -5;
+
+                machine_size_x = hfb_frame_length + 30*2;
+                machine_size_y = hlr_frame_length;
+                machine_size_z = v_frame_length + 60;
+
+            } else {
+                machine_size_x = "?";
+                machine_size_y = "?";
+                machine_size_z = "?";
+
+                x_rail_length = "?";
+                y_rail_length = "?";
+                z_rail_length = "?";
+
+                v_frame_length = "?";
+                hfb_frame_length = "?";
+                hlr_frame_length = "?";
+                b_frame_length = "?";
+
+                f_gantry_length = "?";
+                b_gantry_length = "?";
+                lr_gantry_length = "?";
+                x_gantry_length = "?";
+            }
+
+            document.getElementById('machine_size_x').innerHTML = machine_size_x;
+            document.getElementById('machine_size_y').innerHTML = machine_size_y;
+            document.getElementById('machine_size_z').innerHTML = machine_size_z;
+
+            document.getElementById('x_rail_length').innerHTML = x_rail_length;
+            document.getElementById('y_rail_length').innerHTML = y_rail_length;
+            document.getElementById('z_rail_length').innerHTML = z_rail_length;
+
+            document.getElementById('v_frame_length').innerHTML = v_frame_length;
+            document.getElementById('hfb_frame_length').innerHTML = hfb_frame_length;
+            document.getElementById('hlr_frame_length').innerHTML = hlr_frame_length;
+            document.getElementById('b_frame_length').innerHTML = b_frame_length;
+
+            document.getElementById('f_gantry_length').innerHTML = f_gantry_length;
+            document.getElementById('b_gantry_length').innerHTML = b_gantry_length;
+            document.getElementById('lr_gantry_length').innerHTML = lr_gantry_length;
+            document.getElementById('x_gantry_length').innerHTML = x_gantry_length;
+        };
+    </script>
+
+</body>
+
+</html>
